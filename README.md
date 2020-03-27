@@ -18,9 +18,14 @@
 
 ## How do you open it?
 
-1. python -m venv .venv 
-2. source .venv/bin/activate
-3. pip install -r requirements.txt
-4. export FLASK_APP=app.py
-5. flask run
+1. 
+$ python -m venv .venv 
+2. 
+$ source .venv/bin/activate
+3. 
+$ pip install -r requirements.txt
+4. 
+$export FLASK_APP=app.py
+5. 
+$flask run
 
