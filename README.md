@@ -18,13 +18,19 @@
 
 ## How do you open it?
 
-1. ```$ python -m venv .venv```
+1. Install python and pip: 
+  - Mac: 
+    - ```$ sudo easy_install pip```
+    - ```$ sudo pip install --upgrade pip```
+    - ```$ pip install python```
+    
+2. ```$ python -m venv .venv```
 
-2. ```$ source .venv/bin/activate```
+3. ```$ source .venv/bin/activate```
 
-3. ```$ pip install -r requirements.txt```
+4. ```$ pip install -r requirements.txt```
 
-4. ```$ export FLASK_APP=app.py```
+5. ```$ export FLASK_APP=app.py```
 
-5. ```$ flask run```
+6. ```$ flask run```
 
