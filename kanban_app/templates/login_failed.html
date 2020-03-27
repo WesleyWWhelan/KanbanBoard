@@ -1,0 +1,32 @@
+{% extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}
+Login
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+      <form class="form-login" method="POST" action = "/login">
+        <div class="jumbotron text-center">
+          <h1>Welcome to Your Kanban Board</h1>
+        </div>
+        <h2 class="form-login-heading">Username or Password Invalid. Please Try again.</h2>
+        {{ form.hidden_tag() }}
+        {{ wtf.form_field(form.username) }}
+        {{ wtf.form_field(form.password) }}
+        {{ wtf.form_field(form.remember) }}
+        {{ wtf.form_field(form.submit) }}
+        </div>
+      </form>
+
+    </div>
+    <style>
+      #button1 {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    </style>
+    <a href= "/signup" id = 'button1'><button>If you don't already have an account, Sign up here. </button></a>
+{% endblock %}

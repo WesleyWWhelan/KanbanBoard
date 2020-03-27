@@ -1,0 +1,138 @@
+{% extends "bootstrap/base.html" %}
+
+{% block title %}
+Add Task
+{% endblock %}
+
+{% block content %}
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <style>
+        #navBar {
+          color:antiquewhite;
+          font-family: 'Courier';
+          font-size: 125%;
+        }
+        body {
+          background-image: url('./public/bg3.jpg');
+          background-size: cover;
+        }
+        #header{
+          font-family: 'Courier New';
+          font-size: 300%;
+          color:rgb(255, 255, 255);
+          font-weight: 700;
+          text-decoration: underline overline dotted black;
+        }
+        #headerbg {
+          background-color:rgb(82, 102, 110);
+          font-family:'Courier';
+          color:rgb(104, 45, 45);
+        }
+        #formhead {
+            font-family: 'Courier';
+            color:rgb(0, 0, 0);
+            font-size: 150%;
+        }
+        #form {
+            color: rgb(0, 0, 0);
+            font-weight: 700;
+            font-size: 200%;
+        }
+        </style>
+    
+        <title>Kanban Board</title>
+    
+      
+        <header class='headerr'>
+            <div id = "headerbg" class="jumbotron text-center">
+                <h1 id="header">Completed Tasks</h1>
+            </div>
+        </header>
+        <nav id = "navBar" class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">Kanban</a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li ><a href="/board">Board</a></li>
+                    <li><a href="/add">Add Task</a></li>
+                    <li><a href="/todo">To Do</a></li>
+                    <li><a href="/inprogress">In Progress</a></li>
+                    <li><a class='active' href="#">Complete</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="/logout"><span class="glyphicon glyphicon-user"></span> Logout</a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> {{ name }}</a></li>
+                </ul>
+            </div>
+        </nav>
+    </head>
+
+
+    <style>
+        #heading {
+        color: rgb(255, 255, 255);
+        font-family: 'Courier';
+        font-size: 200%;
+        font-weight: 900;
+        text-decoration: underline;
+        }
+        .ttitle {
+          font-size: 140%;
+          font-weight: 450;
+          font-family: 'Courier';
+          color:white;
+        }
+        #content {
+            width: 700px ;
+            margin-left: auto ;
+            margin-right: auto ;
+        }
+        #bt {
+            background-color:burlywood;
+            color:black;
+            display: inline;
+            border: 1px solid black;
+            border-radius: 4px;
+        }
+    </style>
+    
+    <body>
+        
+        <div class="col" id = 'content', style="background-color: #151518">
+            <a href = '#'><h3 id = "heading" class = "text-center" >Complete</h3></a>
+            <ol>
+              {% for task in complete %}
+                <br>
+                <li class='ttitle'><strong>Task: </strong>{{task.title}}
+                  <ul>
+                    <li> Description: {{task.description}}</li>
+                    <li> Start Date: {{task.begin}}</li>
+                    <li> Deadline: {{task.end}}</li>
+                    <li> 
+                        <form method='POST' action='/delete'>
+                            <input type='hidden' value='{{task.title}}' name='title'>
+                            <input id = "bt" type='submit' class="btn" value="Delete Task">
+                        </form>
+                    </li>
+                    <li> 
+                        <form method='POST' action='/start'>
+                            <input type='hidden' value='{{task.title}}' name='title'>
+                            <input id = "bt" type='submit' class="btn" value="Change back to In Progress">
+                        </form>
+                    </li>
+                  </ul>
+                </li>
+              {% endfor %}  
+            </ol>
+        </div>
+
+
+    </body>
+
+
+</html>
+{% endblock %}

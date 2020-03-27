@@ -1,0 +1,94 @@
+{% extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}
+Add Task
+{% endblock %}
+
+{% block content %}
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <style>
+        #navBar {
+          color:antiquewhite;
+          font-family: 'Courier';
+          font-size: 125%;
+        }
+        body {
+          background-image: url('./public/bg3.jpg');
+          background-size: cover;
+        }
+        #header{
+          font-family: 'Courier New';
+          font-size: 300%;
+          color:rgb(255, 255, 255);
+          font-weight: 700;
+          text-decoration: underline overline dotted black;
+        }
+        #headerbg {
+          background-color:rgb(82, 102, 110);
+          font-family:'Courier';
+          color:rgb(104, 45, 45);
+        }
+        #formhead {
+            font-family: 'Courier';
+            color:rgb(0, 0, 0);
+            font-size: 150%;
+        }
+        #form {
+            color: rgb(0, 0, 0);
+            font-weight: 700;
+            font-size: 200%;
+        }
+        </style>
+    
+        <title>Kanban Board</title>
+    
+      
+        <header class='headerr'>
+            <div id = "headerbg" class="jumbotron text-center">
+                <h1 id="header">Add a Task!</h1>
+            </div>
+        </header>
+        <nav id = "navBar" class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">Kanban</a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li ><a href="/board">Board</a></li>
+                    <li><a class='active' href="#">Add Task</a></li>
+                    <li><a href="/todo">To Do</a></li>
+                    <li><a href="/inprogress">In Progress</a></li>
+                    <li><a href="/complete">Complete</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="/logout"><span class="glyphicon glyphicon-user"></span> Logout</a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> {{ name }}</a></li>
+                </ul>
+            </div>
+        </nav>
+    </head>
+
+    <body>
+
+        <div class="container">
+            <form id = 'form' class="form-add" method="POST" action = "/add">
+                <h2 id = 'formhead' class="form-add-heading">Add Task Here:</h2>
+                {{ form.hidden_tag() }}
+                {{ wtf.form_field(form.title) }}
+                {{ wtf.form_field(form.description) }}
+                {{ wtf.form_field(form.begin) }}
+                {{ wtf.form_field(form.end) }}
+                {{ wtf.form_field(form.typ)}}  
+                {{ wtf.form_field(form.submit)}}
+            </form>
+      
+          </div>
+
+    </body>
+
+</html>
+{% endblock %}
