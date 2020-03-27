@@ -18,7 +18,7 @@
 
 ## How do you open it?
 
-1. Install python and pip: 
+1. Install python and pip:
   - Mac: 
     - ```$ sudo easy_install pip```
     - ```$ sudo pip install --upgrade pip```
