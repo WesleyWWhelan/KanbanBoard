@@ -24,13 +24,13 @@
     - ```$ sudo pip install --upgrade pip```
     - ```$ pip install python```
     
-2. ```$ python -m venv .venv```
+1. ```$ python -m venv .venv```
 
-3. ```$ source .venv/bin/activate```
+1. ```$ source .venv/bin/activate```
 
-4. ```$ pip install -r requirements.txt```
+1. ```$ pip install -r requirements.txt```
 
-5. ```$ export FLASK_APP=app.py```
+1. ```$ export FLASK_APP=app.py```
 
-6. ```$ flask run```
+1. ```$ flask run```
 
