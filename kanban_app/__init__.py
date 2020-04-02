@@ -135,6 +135,7 @@ def board():
 
 
 @app.route("/add", methods=["GET", "POST"])
+@login_required
 def addtask():
 
     form = add()
@@ -150,6 +151,7 @@ def addtask():
     return render_template('add.html',form=form,name =current_user.username)
 
 @app.route('/todo', methods=['POST', 'GET'])
+@login_required
 def todo():
 
     todo = Task.query.filter_by(typ='todo').all()
@@ -157,6 +159,7 @@ def todo():
     return render_template('todo.html',todo=todo,name =current_user.username)
 
 @app.route('/inprogress', methods=['POST', 'GET'])
+@login_required
 def inprog():
 
     inprogress = Task.query.filter_by(typ='inprogress').all()
@@ -164,6 +167,7 @@ def inprog():
     return render_template('inprogress.html',inprogress=inprogress,name =current_user.username)
 
 @app.route('/complete', methods=['POST', 'GET'])
+@login_required
 def complete():
 
     complete = Task.query.filter_by(typ='complete').all()
@@ -171,6 +175,7 @@ def complete():
     return render_template('complete.html',complete=complete,name =current_user.username)
 
 @app.route('/delete', methods = ['POST'])
+@login_required
 def delete():
 
     title = request.form.get('title')
@@ -181,6 +186,7 @@ def delete():
     return redirect(url_for('board'))
 
 @app.route('/start', methods = ['POST'])
+@login_required
 def start():
 
     title = request.form.get('title')
@@ -191,6 +197,7 @@ def start():
     return redirect(url_for('inprog'))
 
 @app.route('/mark_complete', methods = ['POST'])
+@login_required
 def mark_complete():
 
     title = request.form.get('title')
